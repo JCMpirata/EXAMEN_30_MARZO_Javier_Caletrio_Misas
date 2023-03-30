@@ -69,4 +69,15 @@ class Polinomio:
             aux1 = aux1.siguiente
             aux2 = polinomio.cabeza
         return polinomio_resultante
+    
+    def eliminar_termino(self, exponente):
+        aux = self.cabeza
+        if aux.exponente == exponente:
+            self.cabeza = aux.siguiente
+        else:
+            while aux.siguiente is not None:
+                if aux.siguiente.exponente == exponente:
+                    aux.siguiente = aux.siguiente.siguiente
+                    break
+                aux = aux.siguiente
 
