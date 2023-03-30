@@ -57,4 +57,16 @@ class Polinomio:
             polinomio_resultante.agregar(aux2.coeficiente, aux2.exponente)
             aux2 = aux2.siguiente
         return polinomio_resultante
+    
+    def dividir(self, polinomio):
+        aux1 = self.cabeza
+        aux2 = polinomio.cabeza
+        polinomio_resultante = Polinomio()
+        while aux1 is not None:
+            while aux2 is not None:
+                polinomio_resultante.agregar(aux1.coeficiente / aux2.coeficiente, aux1.exponente - aux2.exponente)
+                aux2 = aux2.siguiente
+            aux1 = aux1.siguiente
+            aux2 = polinomio.cabeza
+        return polinomio_resultante
 
