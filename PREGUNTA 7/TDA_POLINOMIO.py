@@ -88,4 +88,12 @@ class Polinomio:
                 return True
             aux = aux.siguiente
         return False
+    
+    def __str__(self):
+        aux = self.cabeza
+        polinomio = ""
+        while aux is not None:
+            polinomio += str(aux.coeficiente) + "x^" + str(aux.exponente) + " "
+            aux = aux.siguiente
+        return polinomio
 
