@@ -35,3 +35,18 @@ class Cola:
         else:
             print("Cola vacia!!!")
         return res
+    
+    def isEmpty(self):
+        return self._head is None
+
+    def __len__(self):
+        return self.len
+
+    def __str__(self):
+
+        result = ""
+        while not self.isEmpty():
+            result += f"{self._head.elem}, "
+            self._head = self._head.next
+            self.len -= 1
+        return result
