@@ -1,5 +1,7 @@
 # TDA  POLINOMIO DE MANERA RECURSIVA
 
+import unittest
+
 class Nodo:
     def __init__(self, coeficiente, exponente):
         self.coeficiente = coeficiente
@@ -96,4 +98,29 @@ class Polinomio:
             polinomio += str(aux.coeficiente) + "x^" + str(aux.exponente) + " "
             aux = aux.siguiente
         return polinomio
+    
+    # Pruebas unitarias
+    def test(self):
+        self.agregar(1, 2)
+        self.agregar(2, 1)
+        self.agregar(3, 0)
+        self.mostrar()
+        print(self.evaluar(2))
+        self.eliminar_termino(2)
+        self.mostrar()
+        print(self.existe_termino(2))
+        print(self.existe_termino(1))
+        polinomio2 = Polinomio()
+        polinomio2.agregar(1, 2)
+        polinomio2.agregar(2, 1)
+        polinomio2.agregar(3, 0)
+        polinomio3 = self.restar(polinomio2)
+        print(polinomio3)
+        polinomio4 = self.dividir(polinomio2)
+        print(polinomio4)
+
+if __name__ == "__main__":
+    polinomio = Polinomio()
+    polinomio.test()
+
 
