@@ -81,3 +81,11 @@ class Polinomio:
                     break
                 aux = aux.siguiente
 
+    def existe_termino(self, exponente):
+        aux = self.cabeza
+        while aux is not None:
+            if aux.exponente == exponente:
+                return True
+            aux = aux.siguiente
+        return False
+
