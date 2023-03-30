@@ -34,4 +34,27 @@ class Polinomio:
             resultado += aux.coeficiente * x ** aux.exponente
             aux = aux.siguiente
         return resultado
+    
+    def restar(self, polinomio):
+        aux1 = self.cabeza
+        aux2 = polinomio.cabeza
+        polinomio_resultante = Polinomio()
+        while aux1 is not None and aux2 is not None:
+            if aux1.exponente == aux2.exponente:
+                polinomio_resultante.agregar(aux1.coeficiente - aux2.coeficiente, aux1.exponente)
+                aux1 = aux1.siguiente
+                aux2 = aux2.siguiente
+            elif aux1.exponente > aux2.exponente:
+                polinomio_resultante.agregar(aux1.coeficiente, aux1.exponente)
+                aux1 = aux1.siguiente
+            else:
+                polinomio_resultante.agregar(aux2.coeficiente, aux2.exponente)
+                aux2 = aux2.siguiente
+        while aux1 is not None:
+            polinomio_resultante.agregar(aux1.coeficiente, aux1.exponente)
+            aux1 = aux1.siguiente
+        while aux2 is not None:
+            polinomio_resultante.agregar(aux2.coeficiente, aux2.exponente)
+            aux2 = aux2.siguiente
+        return polinomio_resultante
 
